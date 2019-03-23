@@ -3,8 +3,9 @@ package ie.tudublin;
 import javafx.scene.shape.Ellipse;
 import processing.core.PApplet;
 import processing.core.PVector;
+import java.util.concurrent.ThreadLocalRandom;
 
-public class Radar
+public class Radar extends PApplet
 {
     private float radius;
     private PVector pos;
@@ -32,12 +33,24 @@ public class Radar
         ui.popMatrix();
         */
 
-        ui.noFill();
+        ui.fill(0);
+        ui.stroke(0,200,0);
         ui.ellipse(pos.x, pos.y, radius * 2, radius * 2);
+        ui.ellipse(pos.x, pos.y, radius * 3/2, radius * 3/2);
+        ui.ellipse(pos.x, pos.y, radius , radius );
+        ui.ellipse(pos.x, pos.y, radius /2 , radius /2 );
         float x2 = pos.x + (float) Math.sin(theta) * radius;
         float y2 = pos.y - (float) Math.cos(theta) * radius;
         ui.stroke(255,0,0);
         ui.line(pos.x, pos.y, x2, y2);
+        ui.fill(255,0,0);
+        if((frameCount%60)==0)
+        {
+            float randomNum = random(0,40);
+            float randomNum2 = random(0,40);
+            ui.ellipse(670+randomNum, 570+randomNum2, 10,10 );
+
+        }        
     }
 
     float timeDelta = 1.0f / 60.0f;

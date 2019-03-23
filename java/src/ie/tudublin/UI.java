@@ -34,6 +34,7 @@ public class UI extends PApplet
 
     public void setup()
     {
+        frameRate(60);
         b = new Button(this, 50, 50, 100, 50, "I am a button");
         mc = new MovingCircle(this, width / 2, height * .75f, 50);
         radar = new Radar(this, 1, 700, 600, 40);
@@ -45,6 +46,8 @@ public class UI extends PApplet
     {
         background(0);
 
+        /*Using the functions "beginshape, endShape" and "vertex" to make a simple gray interface at the bottom of the 
+        displayed screen which will contain the radar and buttons for the spaceship*/
         noStroke();
         fill(128,128,128);
 
@@ -70,11 +73,7 @@ public class UI extends PApplet
         endShape();
 
         stroke(128,128,128);
-        /*line(0, 500, 250, 500);
-        line(250, 500, 250, 550);
-        line(250, 550, 550, 550);
-        line(550, 550, 550, 500);
-        line(550, 500, 800, 500);*/
+
     
         b.render();
 
