@@ -1,5 +1,6 @@
 package ie.tudublin;
 
+import javafx.scene.shape.Ellipse;
 import processing.core.PApplet;
 import processing.core.PVector;
 
@@ -35,6 +36,7 @@ public class Radar
         ui.ellipse(pos.x, pos.y, radius * 2, radius * 2);
         float x2 = pos.x + (float) Math.sin(theta) * radius;
         float y2 = pos.y - (float) Math.cos(theta) * radius;
+        ui.stroke(255,0,0);
         ui.line(pos.x, pos.y, x2, y2);
     }
 

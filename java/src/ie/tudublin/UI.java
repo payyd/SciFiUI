@@ -44,6 +44,38 @@ public class UI extends PApplet
     public void draw()
     {
         background(0);
+
+        noStroke();
+        fill(128,128,128);
+
+        beginShape();
+            vertex(0, 500);
+            vertex(250, 500);
+            vertex(250, 800);
+            vertex(0, 800);
+        endShape();
+
+        beginShape();
+            vertex(250, 550);
+            vertex(250, 800);
+            vertex(550, 800);
+            vertex(550, 550);
+        endShape();
+
+        beginShape();
+            vertex(550, 500);
+            vertex(800, 500);
+            vertex(800, 800);
+            vertex(550, 800);
+        endShape();
+
+        stroke(128,128,128);
+        /*line(0, 500, 250, 500);
+        line(250, 500, 250, 550);
+        line(250, 550, 550, 550);
+        line(550, 550, 550, 500);
+        line(550, 500, 800, 500);*/
+    
         b.render();
 
         mc.update();
