@@ -23,16 +23,6 @@ public class Radar extends PApplet
 
     public void render()
     {
-        /*ui.pushMatrix();        
-        ui.noFill();
-        ui.stroke(0, 200, 0);
-        ui.translate(pos.x, pos.y);
-        ui.rotate(theta);
-        ui.ellipse(0, 0, radius * 2, radius * 2);
-        ui.line(0,0,0,-radius);
-        ui.popMatrix();
-        */
-
         ui.fill(0);
         ui.stroke(0,200,0);
         ui.ellipse(pos.x, pos.y, radius * 2, radius * 2);
@@ -44,12 +34,11 @@ public class Radar extends PApplet
         ui.stroke(255,0,0);
         ui.line(pos.x, pos.y, x2, y2);
         ui.fill(255,0,0);
-        if((frameCount%60)==0)
+        if((frameCount%24)==0)
         {
             float randomNum = random(0,40);
             float randomNum2 = random(0,40);
             ui.ellipse(670+randomNum, 570+randomNum2, 10,10 );
-
         }        
     }
 

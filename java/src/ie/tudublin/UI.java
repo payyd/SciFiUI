@@ -6,6 +6,7 @@ public class UI extends PApplet
 {
     Button b;
     MovingCircle mc;
+    Speedometer sm;
 
     boolean[] keys = new boolean[1024];
 
@@ -34,7 +35,8 @@ public class UI extends PApplet
 
     public void setup()
     {
-        frameRate(60);
+        frameRate(24);
+        sm = new Speedometer(this, 50, 500, 50, 100, "Speed:");
         b = new Button(this, 50, 50, 100, 50, "I am a button");
         mc = new MovingCircle(this, width / 2, height * .75f, 50);
         radar = new Radar(this, 1, 700, 600, 40);
@@ -74,7 +76,6 @@ public class UI extends PApplet
 
         stroke(128,128,128);
 
-    
         b.render();
 
         mc.update();
@@ -83,10 +84,8 @@ public class UI extends PApplet
         radar.update();
         radar.render();
 
-        if (checkKey(LEFT))
-        {
-            System.out.println("Left arrow key pressed");
-        }
+        sm.render();
+
     }
 }
 
