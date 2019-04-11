@@ -13,13 +13,6 @@ public class Speedometer extends PApplet
     private String text;
     private int speed = 0;
 
-    boolean[] keys = new boolean[1024];
-
-    public boolean checkKey(int c)
-    {
-        return keys[c] || keys [Character.toUpperCase(c)];
-    }
-
     public Speedometer(UI ui, float x, float y, float width, float height, String text)
     {
         this.ui = ui;
@@ -30,17 +23,120 @@ public class Speedometer extends PApplet
         this.text = text + speed;
     }
 
-    public void keys()
+    public void update()
 	{
-        if (checkKey(UP))
+        if(speed>=1 && speed<=24)
+        {
+            //draw green box
+            ui.fill(0,255,0);
+            ui.beginShape();
+                ui.vertex(50, 620);
+                ui.vertex(50, 595);
+                ui.vertex(100, 595);
+                ui.vertex(100, 620);
+            ui.endShape();
+        }
+        else if(speed>=25 && speed<=49)
+        {
+            //draw yellow and green box here
+            ui.fill(0,255,0);
+            ui.beginShape();
+                ui.vertex(50, 620);
+                ui.vertex(50, 595);
+                ui.vertex(100, 595);
+                ui.vertex(100, 620);
+            ui.endShape();
+
+            ui.fill(255,255,0);
+            ui.beginShape();
+                ui.vertex(50, 595);
+                ui.vertex(50, 570);
+                ui.vertex(100, 570);
+                ui.vertex(100, 595);
+            ui.endShape();
+        }
+        else if(speed>=50 && speed<=75)
+        {
+            //draw yellow and green and orange box here
+            ui.fill(0,255,0);
+            ui.beginShape();
+                ui.vertex(50, 620);
+                ui.vertex(50, 595);
+                ui.vertex(100, 595);
+                ui.vertex(100, 620);
+            ui.endShape();
+
+            ui.fill(255,255,0);
+            ui.beginShape();
+                ui.vertex(50, 595);
+                ui.vertex(50, 570);
+                ui.vertex(100, 570);
+                ui.vertex(100, 595);
+            ui.endShape();
+
+            ui.fill(255,165,0);
+            ui.beginShape();
+                ui.vertex(50, 570);
+                ui.vertex(50, 545);
+                ui.vertex(100, 545);
+                ui.vertex(100, 570);
+            ui.endShape();
+
+            
+        }
+        else if(speed>=76)
+        {
+            //draw red orange yellow and green boxes
+            ui.fill(0,255,0);
+            ui.beginShape();
+                ui.vertex(50, 620);
+                ui.vertex(50, 595);
+                ui.vertex(100, 595);
+                ui.vertex(100, 620);
+            ui.endShape();
+
+            ui.fill(255,255,0);
+            ui.beginShape();
+                ui.vertex(50, 595);
+                ui.vertex(50, 570);
+                ui.vertex(100, 570);
+                ui.vertex(100, 595);
+            ui.endShape();
+
+            ui.fill(255,165,0);
+            ui.beginShape();
+                ui.vertex(50, 570);
+                ui.vertex(50, 545);
+                ui.vertex(100, 545);
+                ui.vertex(100, 570);
+            ui.endShape();
+
+            ui.fill(255,0,0);
+            ui.beginShape();
+                ui.vertex(50, 545);
+                ui.vertex(50, 520);
+                ui.vertex(100, 520);
+                ui.vertex(100, 545);
+            ui.endShape();
+        }
+        if (ui.checkKey('w'))
         {
             speed++;
+             text = "Speed:"+speed;
         }
-        if (checkKey(DOWN))
+        if (ui.checkKey('s'))
         {
             speed--;
+            text = "Speed:"+speed;
         } 
-        
+        if(speed>=100)
+        {
+            speed--;
+        }
+        else if(speed<=0)
+        {
+            speed ++;
+        }
 	}
     public void render()
     {
@@ -48,7 +144,7 @@ public class Speedometer extends PApplet
         ui.stroke(255);
         ui.rect(x, y, width, height);
         ui.textAlign(PApplet.CENTER, PApplet.BOTTOM);
-        ui.text(text, x + width * 0.5f, y + height * 0.5f);
+        ui.text(text,75,520);
     }
 
 }

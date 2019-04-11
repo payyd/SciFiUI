@@ -17,7 +17,7 @@ public class UI extends PApplet
     
     public void keyReleased()
     {
-        keys[keyCode] = true;
+        keys[keyCode] = false;
     }
 
     public boolean checkKey(int c)
@@ -36,7 +36,7 @@ public class UI extends PApplet
     public void setup()
     {
         frameRate(24);
-        sm = new Speedometer(this, 50, 500, 50, 100, "Speed:");
+        sm = new Speedometer(this, 50, 520, 50, 100, "Speed:");
         b = new Button(this, 50, 50, 100, 50, "I am a button");
         mc = new MovingCircle(this, width / 2, height * .75f, 50);
         radar = new Radar(this, 1, 700, 600, 40);
@@ -85,6 +85,7 @@ public class UI extends PApplet
         radar.render();
 
         sm.render();
+        sm.update();
 
     }
 }
