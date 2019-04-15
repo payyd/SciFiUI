@@ -7,6 +7,7 @@ public class UI extends PApplet
     Button b;
     MovingCircle mc;
     Speedometer sm;
+    Arrows a;
 
     boolean[] keys = new boolean[1024];
 
@@ -40,6 +41,7 @@ public class UI extends PApplet
         b = new Button(this, 50, 50, 100, 50, "I am a button");
         mc = new MovingCircle(this, width / 2, height * .75f, 50);
         radar = new Radar(this, 1, 700, 600, 40);
+        a = new Arrows(this, 290, 615, 340, 640, 340, 590);
     }
 
     Radar radar;
@@ -52,6 +54,7 @@ public class UI extends PApplet
         displayed screen which will contain the radar and buttons for the spaceship*/
         noStroke();
         fill(128,128,128);
+        
 
         beginShape();
             vertex(0, 500);
@@ -74,18 +77,20 @@ public class UI extends PApplet
             vertex(550, 800);
         endShape();
 
-        stroke(128,128,128);
-
         b.render();
 
         mc.update();
         mc.render();
 
-        radar.update();
         radar.render();
+        radar.update();
+
 
         sm.render();
         sm.update();
+
+        a.render();
+        a.update();
 
     }
 }

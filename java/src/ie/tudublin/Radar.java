@@ -5,6 +5,7 @@ import processing.core.PApplet;
 import processing.core.PVector;
 import java.util.concurrent.ThreadLocalRandom;
 
+
 public class Radar extends PApplet
 {
     private float radius;
@@ -12,6 +13,9 @@ public class Radar extends PApplet
     private float frequency;
     private UI ui;
     private float theta = 0;
+    private long starttime = System.currentTimeMillis();
+    public float randNum = randomNumMaker();
+    public float randNum2 = randomNumMaker();
 
     public Radar(UI ui, float frequency, float x, float y, float radius)
     {
@@ -33,20 +37,27 @@ public class Radar extends PApplet
         float y2 = pos.y - (float) Math.cos(theta) * radius;
         ui.stroke(255,0,0);
         ui.line(pos.x, pos.y, x2, y2);
-        ui.fill(255,0,0);
-        if((frameCount%24)==0)
-        {
-            float randomNum = random(0,40);
-            float randomNum2 = random(0,40);
-            ui.ellipse(670+randomNum, 570+randomNum2, 10,10 );
-        }        
+        ui.fill(255,0,0);       
     }
 
     float timeDelta = 1.0f / 60.0f;
 
+    public float randomNumMaker()
+    {
+        float randomNum = random(0,40);
+        return randomNum;
+    }
+
     public void update()
     {
         theta += PApplet.TWO_PI * timeDelta * frequency;
+        long currenttime = System.currentTimeMillis();
+        long time = (currenttime - starttime)/1000;
+
+        if(time % 2 == 0)
+        {   
+           ui.ellipse(670+randNum, 570+randNum2, 10,10 );
+        }
     }
 
     /**
