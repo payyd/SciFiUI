@@ -4,6 +4,7 @@ import processing.core.PApplet;
 
 public class UI extends PApplet
 {
+    Star[] stars = new Star[100];
     Button b;
     MovingCircle mc;
     Speedometer sm;
@@ -36,10 +37,12 @@ public class UI extends PApplet
 
     public void setup()
     {
-        frameRate(24);
+        for(int i =0; i< stars.length; i++){
+            stars[i]= new Star(this);
+        }
         sm = new Speedometer(this, 50, 520, 50, 100, "Speed:");
-        b = new Button(this, 50, 50, 100, 50, "I am a button");
-        mc = new MovingCircle(this, width / 2, height * .75f, 50);
+        //b = new Button(this, 50, 50, 100, 50, "I am a button");
+        //mc = new MovingCircle(this, width / 2, height * .75f, 50);
         radar = new Radar(this, 1, 700, 600, 40);
         a = new Arrows(this, 290, 615, 340, 640, 340, 590);
     }
@@ -49,6 +52,9 @@ public class UI extends PApplet
     public void draw()
     {
         background(0);
+        noFill();
+        stroke(200,0,0);
+        ellipse(mouseX,mouseY,30,30);
 
         /*Using the functions "beginshape, endShape" and "vertex" to make a simple gray interface at the bottom of the 
         displayed screen which will contain the radar and buttons for the spaceship*/
@@ -77,10 +83,10 @@ public class UI extends PApplet
             vertex(550, 800);
         endShape();
 
-        b.render();
+        //b.render();
 
-        mc.update();
-        mc.render();
+        //mc.update();
+        //mc.render();
 
         radar.render();
         radar.update();
@@ -92,6 +98,12 @@ public class UI extends PApplet
         a.render();
         a.update();
 
+        
+        translate(width/2,height/2);
+        for(int i =0; i< stars.length; i++){
+            stars[i].render();
+            stars[i].update();
+        }
     }
 }
 
