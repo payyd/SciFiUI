@@ -4,7 +4,7 @@ import processing.core.PApplet;
 
 public class UI extends PApplet
 {
-    Star[] stars = new Star[100];
+    Star[] stars = new Star[200];
     Button b;
     MovingCircle mc;
     Speedometer sm;
@@ -53,9 +53,9 @@ public class UI extends PApplet
 
     public void draw()
     {
-        background(0);
 
-        /*Making a crosshair follow the mouse*/
+        background(0);
+        /*Making a crosshair that follows the mouse*/
         fill(200,0,0);
         stroke(200,0,0);
         rect(mouseX-20,mouseY,30,10);
@@ -66,7 +66,7 @@ public class UI extends PApplet
         /*Using the functions "beginshape, endShape" and "vertex" to make a simple gray interface at the bottom of the 
         displayed screen which will contain the radar and buttons for the spaceship*/
         noStroke();
-        fill(128,128,128);
+        fill(0,255,0);
         
 
         beginShape();
@@ -105,12 +105,13 @@ public class UI extends PApplet
         a.render();
         a.update();
 
-        
         translate(width/2,height/2);
-        for(int i =0; i< stars.length; i++){
-            stars[i].render();
+        for(int i =0; i< stars.length; i++)
+        {
             stars[i].update();
+            stars[i].render();
         }
+
     }
 }
 

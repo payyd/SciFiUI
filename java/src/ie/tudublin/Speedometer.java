@@ -28,7 +28,7 @@ public class Speedometer extends PApplet
         if(speed>=1 && speed<=24)
         {
             //draw green box
-            ui.fill(0,255,0);
+            ui.fill(0,100,0);
             ui.beginShape();
                 ui.vertex(50, 620);
                 ui.vertex(50, 595);
@@ -39,7 +39,7 @@ public class Speedometer extends PApplet
         else if(speed>=25 && speed<=49)
         {
             //draw yellow and green box here
-            ui.fill(0,255,0);
+            ui.fill(0,100,0);
             ui.beginShape();
                 ui.vertex(50, 620);
                 ui.vertex(50, 595);
@@ -58,7 +58,7 @@ public class Speedometer extends PApplet
         else if(speed>=50 && speed<=75)
         {
             //draw yellow and green and orange box here
-            ui.fill(0,255,0);
+            ui.fill(0,100,0);
             ui.beginShape();
                 ui.vertex(50, 620);
                 ui.vertex(50, 595);
@@ -87,7 +87,7 @@ public class Speedometer extends PApplet
         else if(speed>=76)
         {
             //draw red orange yellow and green boxes
-            ui.fill(0,255,0);
+            ui.fill(0,100,0);
             ui.beginShape();
                 ui.vertex(50, 620);
                 ui.vertex(50, 595);
@@ -140,7 +140,7 @@ public class Speedometer extends PApplet
 	}
     public void render()
     {
-        ui.noFill();
+        ui.fill(128);
         ui.stroke(255);
         ui.rect(x, y, width, height);
         ui.textAlign(PApplet.CENTER, PApplet.BOTTOM);

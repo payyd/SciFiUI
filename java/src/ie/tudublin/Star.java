@@ -30,6 +30,8 @@ public class Star extends PApplet
             x=random(-width,width);
             y=random(-height,height);
         }
+
+        //arrow keys
         if (ui.checkKey('w'))
         {
             speed++;
@@ -38,6 +40,8 @@ public class Star extends PApplet
         {
             speed--;
         }
+
+        //star speed changes
         if(speed>=1 && speed<=24)
         {
             star_speed = 0.5f;
@@ -55,6 +59,8 @@ public class Star extends PApplet
         {
             star_speed =1.5f;
         }
+
+        //error checking
         if(speed>=100)
         {
             speed--;
@@ -63,7 +69,7 @@ public class Star extends PApplet
         {
             speed ++;
         }
-
+        
 
     }
     
