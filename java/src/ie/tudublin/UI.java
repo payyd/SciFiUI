@@ -9,6 +9,8 @@ public class UI extends PApplet
     MovingCircle mc;
     Speedometer sm;
     Arrows a;
+    float red;
+    float blue;
 
     boolean[] keys = new boolean[1024];
 
@@ -52,9 +54,13 @@ public class UI extends PApplet
     Radar radar;
 
     public void draw()
-    {
+    {   
+        //changing background colour depending on where you look
+        red=map(mouseX,0,width,0,255);
+        blue=map(mouseX,0,width,255,0);
 
-        background(0);
+
+        background(red-150,0,blue-150);
         /*Making a crosshair that follows the mouse*/
         fill(200,0,0);
         stroke(200,0,0);
