@@ -23,101 +23,73 @@ public class Speedometer extends PApplet
         this.text = text + speed;
     }
 
+    public void green_block(){
+        ui.fill(0,100,0);
+            ui.beginShape();
+                ui.vertex(50, 620);
+                ui.vertex(50, 595);
+                ui.vertex(100, 595);
+                ui.vertex(100, 620);
+            ui.endShape();
+
+    }
+    public void yellow_block(){
+        ui.fill(255,255,0);
+        ui.beginShape();
+            ui.vertex(50, 595);
+            ui.vertex(50, 570);
+            ui.vertex(100, 570);
+            ui.vertex(100, 595);
+        ui.endShape();
+    }
+    public void orange_block(){
+
+        ui.fill(255,165,0);
+        ui.beginShape();
+            ui.vertex(50, 570);
+            ui.vertex(50, 545);
+            ui.vertex(100, 545);
+            ui.vertex(100, 570);
+        ui.endShape();
+
+    }
+    public void red_block(){
+        ui.fill(255,0,0);
+        ui.beginShape();
+            ui.vertex(50, 545);
+            ui.vertex(50, 520);
+            ui.vertex(100, 520);
+            ui.vertex(100, 545);
+        ui.endShape();
+
+    }
     public void update()
 	{
         if(speed>=1 && speed<=24)
         {
             //draw green box
-            ui.fill(0,100,0);
-            ui.beginShape();
-                ui.vertex(50, 620);
-                ui.vertex(50, 595);
-                ui.vertex(100, 595);
-                ui.vertex(100, 620);
-            ui.endShape();
+            green_block();
         }
         else if(speed>=25 && speed<=49)
         {
             //draw yellow and green box here
-            ui.fill(0,100,0);
-            ui.beginShape();
-                ui.vertex(50, 620);
-                ui.vertex(50, 595);
-                ui.vertex(100, 595);
-                ui.vertex(100, 620);
-            ui.endShape();
-
-            ui.fill(255,255,0);
-            ui.beginShape();
-                ui.vertex(50, 595);
-                ui.vertex(50, 570);
-                ui.vertex(100, 570);
-                ui.vertex(100, 595);
-            ui.endShape();
+            green_block();
+            yellow_block();  
         }
         else if(speed>=50 && speed<=75)
         {
             //draw yellow and green and orange box here
-            ui.fill(0,100,0);
-            ui.beginShape();
-                ui.vertex(50, 620);
-                ui.vertex(50, 595);
-                ui.vertex(100, 595);
-                ui.vertex(100, 620);
-            ui.endShape();
-
-            ui.fill(255,255,0);
-            ui.beginShape();
-                ui.vertex(50, 595);
-                ui.vertex(50, 570);
-                ui.vertex(100, 570);
-                ui.vertex(100, 595);
-            ui.endShape();
-
-            ui.fill(255,165,0);
-            ui.beginShape();
-                ui.vertex(50, 570);
-                ui.vertex(50, 545);
-                ui.vertex(100, 545);
-                ui.vertex(100, 570);
-            ui.endShape();
-
-            
+            green_block();   
+            yellow_block();
+            orange_block();         
         }
         else if(speed>=76)
         {
             //draw red orange yellow and green boxes
-            ui.fill(0,100,0);
-            ui.beginShape();
-                ui.vertex(50, 620);
-                ui.vertex(50, 595);
-                ui.vertex(100, 595);
-                ui.vertex(100, 620);
-            ui.endShape();
-
-            ui.fill(255,255,0);
-            ui.beginShape();
-                ui.vertex(50, 595);
-                ui.vertex(50, 570);
-                ui.vertex(100, 570);
-                ui.vertex(100, 595);
-            ui.endShape();
-
-            ui.fill(255,165,0);
-            ui.beginShape();
-                ui.vertex(50, 570);
-                ui.vertex(50, 545);
-                ui.vertex(100, 545);
-                ui.vertex(100, 570);
-            ui.endShape();
-
-            ui.fill(255,0,0);
-            ui.beginShape();
-                ui.vertex(50, 545);
-                ui.vertex(50, 520);
-                ui.vertex(100, 520);
-                ui.vertex(100, 545);
-            ui.endShape();
+            green_block();
+            yellow_block();
+            orange_block();
+            red_block();
         }
         if (ui.checkKey('w'))
         {
