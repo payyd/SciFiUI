@@ -5,8 +5,6 @@ import processing.core.PApplet;
 public class UI extends PApplet
 {
     Star[] stars = new Star[200];
-    Button b;
-    MovingCircle mc;
     Speedometer sm;
     Arrows a;
     float red;
@@ -41,8 +39,6 @@ public class UI extends PApplet
     {
 
         sm = new Speedometer(this, 50, 520, 50, 100, "Speed:");
-        //b = new Button(this, 50, 50, 100, 50, "I am a button");
-        //mc = new MovingCircle(this, width / 2, height * .75f, 50);
         radar = new Radar(this, 1, 700, 600, 40);
         a = new Arrows(this, 290, 615, 340, 640, 340, 590);
         for(int i =0; i< stars.length; i++)

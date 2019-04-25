@@ -23,15 +23,15 @@ public class Speedometer extends PApplet
         this.text = text + speed;
     }
 
+    //some functions to draw blocks
     public void green_block(){
         ui.fill(0,100,0);
-            ui.beginShape();
-                ui.vertex(50, 620);
-                ui.vertex(50, 595);
-                ui.vertex(100, 595);
-                ui.vertex(100, 620);
-            ui.endShape();
-
+        ui.beginShape();
+            ui.vertex(50, 620);
+            ui.vertex(50, 595);
+            ui.vertex(100, 595);
+            ui.vertex(100, 620);
+        ui.endShape();
     }
     public void yellow_block(){
         ui.fill(255,255,0);
