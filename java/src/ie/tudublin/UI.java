@@ -90,11 +90,6 @@ public class UI extends PApplet
             vertex(550, 800);
         endShape();
 
-        //b.render();
-
-        //mc.update();
-        //mc.render();
-
         radar.render();
         radar.update();
 
