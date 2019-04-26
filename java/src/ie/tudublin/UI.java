@@ -63,6 +63,15 @@ public class UI extends PApplet
         rect(mouseX,mouseY,10,30);
         rect(mouseX,mouseY,30,10);
 
+        pushMatrix();
+        translate(width/2,height/2);
+        for(int i =0; i< stars.length; i++)
+        {
+            stars[i].update();
+            stars[i].render();
+        }
+        popMatrix();
+
         /*Using the functions "beginshape, endShape" and "vertex" to make a simple gray interface at the bottom of the 
         displayed screen which will contain the radar and buttons for the spaceship*/
         noStroke();
@@ -99,13 +108,6 @@ public class UI extends PApplet
 
         a.render();
         a.update();
-
-        translate(width/2,height/2);
-        for(int i =0; i< stars.length; i++)
-        {
-            stars[i].update();
-            stars[i].render();
-        }
 
     }
 }
